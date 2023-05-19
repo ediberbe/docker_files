@@ -1,4 +1,8 @@
 version: "2.1"
+networks:
+  default:
+    external:
+      name: network1
 services:
   jellyfin:
     image: lscr.io/linuxserver/jellyfin:latest
