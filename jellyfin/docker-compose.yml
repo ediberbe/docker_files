@@ -1,0 +1,26 @@
+version: "2.1"
+networks:
+  network1:
+    external: true
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Bucharest
+    volumes:
+      - ./config:/config
+      - /mnt/merged/media/shows:/data/shows
+      - /mnt/merged/media/movies:/data/movies
+      - /mnt/merged/media/anime:/data/anime
+      - /mnt/merged/media/kids:/data/kids
+      - /mnt/merged/media/music:/data/music
+    ports:
+      - 8096:8096
+    networks:
+      - network1
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+    restart: unless-stopped

@@ -1,0 +1,15 @@
+services:
+  qbittorrent:
+    image: qbittorrentofficial/qbittorrent-nox
+    container_name: qbittorrent
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ./config:/config
+      - /mnt/merged:/storage
+    ports:
+      - 8080:8080
+      - 64560:64560
+      - 64560:64560/udp

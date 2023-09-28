@@ -1,0 +1,15 @@
+{
+    email ediberbescu@gmail.com
+}
+
+ediberbe.go.ro {
+    reverse_proxy 172.26.0.3:8096
+}
+
+ediberbe.com www.ediberbe.com {
+    reverse_proxy 172.26.0.3:8096
+}
+
+jellyfin.ediberbe.com {
+    reverse_proxy 172.26.0.3:8096
+}

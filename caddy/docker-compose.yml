@@ -1,0 +1,19 @@
+version: '3.8'
+networks:
+  network1:
+    external: true
+services:
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./data:/data
+      - ./config:/config
+      - ./logs:/logs
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - network1
+    restart: always

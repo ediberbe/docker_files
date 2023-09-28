@@ -1,0 +1,10 @@
+version: '3'
+services:
+  homer:
+    image: b4bz/homer
+    container_name: homer
+    ports:
+      - 8081:8080
+    volumes:
+      - /home/beraed/homer/assets:/www/assets
+    restart: always
